@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="system_monitor">
+    <file>system_monitor.png</file>
+  </qresource>
+  <qresource prefix="icon">
+    <file>system_monitor.ico</file>
+  </qresource>
+</RCC>
