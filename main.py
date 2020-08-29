@@ -17,17 +17,87 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
+## ==> LOGIN SCREEN
+from ui_login import Ui_Login
+
 ## ==> SPLASH SCREEN
 from ui_splash_screen import Ui_SplashScreen
 
-# GUI FILE
+## GUI FILE
 from ui_main import Ui_MainWindow
 
-# IMPORT FUNCTIONS
+## IMPORT FUNCTIONS
 from ui_functions import *
 
 ## ==> GLOBALS
 counter = 0
+
+# LOGIN SCREEN
+class LoginWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_Login()
+        self.ui.setupUi(self)
+
+        # BT CLOSE POPUP
+        self.ui.btn_close_popup.clicked.connect(lambda: self.ui.frame_error.hide())
+
+        # HIDE ERROR
+        self.ui.frame_error.hide()
+
+        # BT LOGIN
+        self.ui.btn_connect.clicked.connect(self.checkFields)
+        
+        ## SHOW ==> LOGIN WINDOW
+        ########################################################################
+        self.show()
+
+    #
+    # FUNCTIONS
+    #
+    def checkFields(self):
+        textUser = ""
+        textPassword = ""
+
+        def showMessage(message):
+            self.ui.frame_error.show()
+            self.ui.label_error.setText(message)
+
+        # CHECK USER
+        if not self.ui.lineEdit_user.text():
+            textUser = " User Empyt. "
+            #self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditError)
+        else:
+            textUser = ""
+            #self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditOk)
+
+        # CHECK PASSWORD
+        if not self.ui.lineEdit_password.text():
+            textPassword = " Password Empyt. "
+            #self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditError)
+        else:
+            textPassword = ""
+            #self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditOk)
+
+
+        # CHECK FIELDS
+        if textUser + textPassword != '':
+            text = textUser + textPassword
+            showMessage(text)
+            #self.ui.frame_error.setStyleSheet(self.ui.stylePopupError)
+        else:
+            text = " Login OK. "
+            if self.ui.checkBox_user.isChecked():
+                text = text + " | Saver user: OK "
+            showMessage(text)
+            #self.ui.frame_error.setStyleSheet(self.ui.stylePopupOk)
+
+            # SHOW SPLASH WINDOW
+            self.main = SplashScreen()
+            self.main.show()
+
+            # CLOSE SPLASH SCREEN
+            self.close()
 
 # SPLASH SCREEN
 class SplashScreen(QMainWindow):
@@ -147,5 +217,5 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = SplashScreen()
+    window = LoginWindow()
     sys.exit(app.exec_())
