@@ -66,31 +66,31 @@ class LoginWindow(QMainWindow):
         # CHECK USER
         if not self.ui.lineEdit_user.text():
             textUser = " User Empyt. "
-            #self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditError)
+            self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditError)
         else:
             textUser = ""
-            #self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditOk)
+            self.ui.lineEdit_user.setStyleSheet(self.ui.styleLineEditOk)
 
         # CHECK PASSWORD
         if not self.ui.lineEdit_password.text():
             textPassword = " Password Empyt. "
-            #self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditError)
+            self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditError)
         else:
             textPassword = ""
-            #self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditOk)
+            self.ui.lineEdit_password.setStyleSheet(self.ui.styleLineEditOk)
 
 
         # CHECK FIELDS
         if textUser + textPassword != '':
             text = textUser + textPassword
             showMessage(text)
-            #self.ui.frame_error.setStyleSheet(self.ui.stylePopupError)
+            self.ui.frame_error.setStyleSheet(self.ui.stylePopupError)
         else:
             text = " Login OK. "
             if self.ui.checkBox_user.isChecked():
                 text = text + " | Saver user: OK "
             showMessage(text)
-            #self.ui.frame_error.setStyleSheet(self.ui.stylePopupOk)
+            self.ui.frame_error.setStyleSheet(self.ui.stylePopupOk)
 
             # SHOW SPLASH WINDOW
             self.main = SplashScreen()

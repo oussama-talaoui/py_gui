@@ -9,6 +9,42 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 class Ui_Login(object):
+    #
+    # STYLES
+    #
+    styleLineEditOk = ("QLineEdit {\n"
+"    border: 2px solid rgb(45, 45, 45);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color: rgb(30, 30, 30);    \n"
+"    color: rgb(100, 100, 100);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(255, 207, 0);    \n"
+"    color: rgb(200, 200, 200);\n"
+"}")
+
+    styleLineEditError = ("QLineEdit {\n"
+"    border: 2px solid rgb(255, 85, 127);\n"
+"    border-radius: 5px;\n"
+"    padding: 15px;\n"
+"    background-color: rgb(30, 30, 30);    \n"
+"    color: rgb(100, 100, 100);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(55, 55, 55);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(255, 207, 0);    \n"
+"    color: rgb(200, 200, 200);\n"
+"}")
+
+    stylePopupError = ("background-color: rgb(255, 85, 127); border-radius: 5px;")
+    stylePopupOk = ("background-color: rgb(0, 255, 123); border-radius: 5px;")
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(590, 477)
@@ -221,13 +257,4 @@ class Ui_Login(object):
         self.label_credit.setText(_translate("MainWindow", "Created by: Oussama talaoui"))
 
 import file_qrc
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     MainWindow = QtWidgets.QMainWindow()
-#     ui = Ui_Login()
-#     ui.setupUi(MainWindow)
-#     MainWindow.show()
-#     sys.exit(app.exec_())
 
