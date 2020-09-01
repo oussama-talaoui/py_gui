@@ -290,6 +290,9 @@ QLineEdit:focus{
           <property name="maxLength">
            <number>16</number>
           </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
           <property name="placeholderText">
            <string>PASSWORD</string>
           </property>

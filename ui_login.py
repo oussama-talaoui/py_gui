@@ -9,7 +9,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 class Ui_Login(object):
-    #
+        #
     # STYLES
     #
     styleLineEditOk = ("QLineEdit {\n"
@@ -44,7 +44,6 @@ class Ui_Login(object):
 
     stylePopupError = ("background-color: rgb(255, 85, 127); border-radius: 5px;")
     stylePopupOk = ("background-color: rgb(0, 255, 123); border-radius: 5px;")
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(590, 477)
@@ -169,6 +168,7 @@ class Ui_Login(object):
         self.lineEdit_password.setInputMask("")
         self.lineEdit_password.setText("")
         self.lineEdit_password.setMaxLength(16)
+        self.lineEdit_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_password.setObjectName("lineEdit_password")
         self.label_title = QtWidgets.QLabel(self.frame_login)
         self.label_title.setGeometry(QtCore.QRect(40, 9, 171, 31))
@@ -257,4 +257,3 @@ class Ui_Login(object):
         self.label_credit.setText(_translate("MainWindow", "Created by: Oussama talaoui"))
 
 import file_qrc
-
